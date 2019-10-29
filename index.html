@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<header>
+  </head></header>
+  <head>
+   
+
+  <body >
+   
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+ <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+      $(document).ready(function(){
+        var $body = $('body');
+        $body.html('<div><img id = "TwitterLogo"src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/300px-Twitter_Bird.svg.png"><br><br><input type="text" name=""><br><button id ="showNewTweets">Show new tweets</button><button id= "Tweet">Tweet</button> <br><br><br><br><br></div>');
+        $('#showNewTweets').on('click', function () {
+     var  tempStreamsHome = this.streams.home;
+        var index = tempStreamsHome.length - 1;
+        while(index >= 0){
+          var tweet = tempStreamsHome[index];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at :"+'\t'+ tweet.created_at);
+          $tweet.appendTo($body);
+          tempStreamsHome.slice(index + 1);
+          index -= 1;
+        }
+      })
+
+});
+      $('body').css('background-color','#00acec');
+       $('img').css('background-color','#00acee');
+            //  var index = streams.home.length - 1;
+      //  while(index >= 0){
+        // $('#Tweet').on('click', function () {
+        //    var tweeter = $('input').val();
+        //   var $tweet = $('<div></div>');
+        //   $tweet.text('@' + 'ADAM' + ': ' + tweeter);
+        //   $tweet.appendTo($body);
+        // //  index -= 1;
+        // }) 
+        // });
+
+    </script>
+            
+    
+  </body>
+  <footer>   </footer>
+</html>
